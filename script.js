@@ -30,3 +30,18 @@ generateBtn.onclick = () => {
                 if (specialPrompt === true) {
                         UsersPasswordArray = UsersPasswordArray.concat(special_characters);
                 }
+                if (UsersPasswordArray.length != 0) {
+                    for (let i = 0; i < numberOfCharactersPrompt; i++) { 
+                            let randomCharacter = Math.floor(Math.random() * (UsersPasswordArray.length));
+                            FinalUserPassword.push(UsersPasswordArray[randomCharacter]);
+                    }
+                    let passwordArrayJoin = FinalUserPassword.join("")
+                    window.document.getElementById('password').textContent = ("Your final user password is " + passwordArrayJoin);
+            } else {
+                    window.alert("I'm sorry, it appears you haven't selected at least one of the 4 types. Please refresh the page and try again. ")
+            }
+    } else {
+            window.alert("I'm sorry, please select a number that is a MINIMUM of at least 8 characters or a of MAXIMUM 128 characters.")
+
+    }
+}
